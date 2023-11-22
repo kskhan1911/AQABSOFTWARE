@@ -12,7 +12,7 @@
                                     <h4 class="mb-sm-0">Customer Invoice</h4>
 
                                     <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
+                                        <ol class="m-0 breadcrumb">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);"> </a></li>
                                             <li class="breadcrumb-item active">Customer Invoice</li>
                                         </ol>
@@ -27,7 +27,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-        
+
 
   <a href="{{ route('credit.customer') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;"><i class="fa fa-list"> Back </i></a> <br>  <br>
 
@@ -46,8 +46,8 @@
             <td class="text-center"><strong>Customer Mobile</strong></td>
             <td class="text-center"><strong>Address</strong>
             </td>
-             
-            
+
+
         </tr>
         </thead>
         <tbody>
@@ -56,16 +56,16 @@
             <td> {{ $payment['customer']['name'] }}</td>
             <td class="text-center">{{ $payment['customer']['mobile_no']  }}</td>
             <td class="text-center">{{ $payment['customer']['email']  }}</td>
-             
-            
+
+
         </tr>
-        
-                            
+
+
                             </tbody>
                         </table>
                     </div>
 
-                  
+
                 </div>
             </div>
 
@@ -80,11 +80,11 @@
         <div class="col-12">
 
    <form method="post" action="{{ route('customer.update.invoice',$payment->invoice_id)}}">
-          @csrf     
+          @csrf
 
             <div>
                 <div class="p-2">
-                     
+
                 </div>
                 <div class="">
 <div class="table-responsive">
@@ -103,12 +103,12 @@
             </td>
             <td class="text-center"><strong>Total Price</strong>
             </td>
-            
+
         </tr>
         </thead>
         <tbody>
         <!-- foreach ($order->lineItems as $line) or some such thing here -->
-        
+
       @php
         $total_sum = '0';
 $invoice_details = App\Models\InvoiceDetail::where('invoice_id',$payment->invoice_id)->get();
@@ -121,9 +121,9 @@ $invoice_details = App\Models\InvoiceDetail::where('invoice_id',$payment->invoic
             <td class="text-center">{{ $details['product']['name'] }}</td>
             <td class="text-center">{{ $details['product']['quantity'] }}</td>
             <td class="text-center">{{ $details->selling_qty }}</td>
-            <td class="text-center">{{ $details->unit_price }}</td>
-            <td class="text-center">{{ $details->selling_price }}</td>
-            
+            <td class="text-center"> ৳ {{ $details->unit_price }}</td>
+            <td class="text-center"> ৳ {{ $details->selling_price }}</td>
+
         </tr>
          @php
         $total_sum += $details->selling_price;
@@ -135,9 +135,9 @@ $invoice_details = App\Models\InvoiceDetail::where('invoice_id',$payment->invoic
                 <td class="thick-line"></td>
                 <td class="thick-line"></td>
                 <td class="thick-line"></td>
-                <td class="thick-line text-center">
+                <td class="text-center thick-line">
                     <strong>Subtotal</strong></td>
-                <td class="thick-line text-end">${{ $total_sum }}</td>
+                <td class="thick-line text-end"> ৳ {{ $total_sum }}</td>
             </tr>
             <tr>
                 <td class="no-line"></td>
@@ -145,9 +145,9 @@ $invoice_details = App\Models\InvoiceDetail::where('invoice_id',$payment->invoic
                   <td class="no-line"></td>
                    <td class="no-line"></td>
                 <td class="no-line"></td>
-                <td class="no-line text-center">
+                <td class="text-center no-line">
                     <strong>Discount Amount</strong></td>
-                <td class="no-line text-end">${{ $payment->discount_amount }}</td>
+                <td class="no-line text-end"> ৳ {{ $payment->discount_amount }}</td>
             </tr>
              <tr>
                 <td class="no-line"></td>
@@ -155,9 +155,9 @@ $invoice_details = App\Models\InvoiceDetail::where('invoice_id',$payment->invoic
                   <td class="no-line"></td>
                    <td class="no-line"></td>
                 <td class="no-line"></td>
-                <td class="no-line text-center">
+                <td class="text-center no-line">
                     <strong>Paid Amount</strong></td>
-                <td class="no-line text-end">${{ $payment->paid_amount }}</td>
+                <td class="no-line text-end">৳ {{ $payment->paid_amount }}</td>
             </tr>
 
              <tr>
@@ -166,10 +166,10 @@ $invoice_details = App\Models\InvoiceDetail::where('invoice_id',$payment->invoic
                   <td class="no-line"></td>
                    <td class="no-line"></td>
                 <td class="no-line"></td>
-                <td class="no-line text-center">
+                <td class="text-center no-line">
                     <strong>Due Amount</strong></td>
                     <input type="hidden" name="new_paid_amount" value="{{$payment->due_amount}}">
-                <td class="no-line text-end">${{ $payment->due_amount }}</td>
+                <td class="no-line text-end"> ৳ {{ $payment->due_amount }}</td>
             </tr>
             <tr>
                 <td class="no-line"></td>
@@ -177,9 +177,9 @@ $invoice_details = App\Models\InvoiceDetail::where('invoice_id',$payment->invoic
                   <td class="no-line"></td>
                    <td class="no-line"></td>
                 <td class="no-line"></td>
-                <td class="no-line text-center">
+                <td class="text-center no-line">
                     <strong>Grand Amount</strong></td>
-                <td class="no-line text-end"><h4 class="m-0">${{ $payment->total_amount }}</h4></td>
+                <td class="no-line text-end"><h4 class="m-0">৳ {{ $payment->total_amount }}</h4></td>
             </tr>
                             </tbody>
                         </table>
@@ -194,9 +194,9 @@ $invoice_details = App\Models\InvoiceDetail::where('invoice_id',$payment->invoic
                   <label> Paid Status </label>
                     <select name="paid_status" id="paid_status" class="form-select">
                         <option value="">Select Status </option>
-                        <option value="full_paid">Full Paid </option> 
+                        <option value="full_paid">Full Paid </option>
                         <option value="partial_paid">Partial Paid </option>
-                        
+
                     </select>
         <input type="text" name="paid_amount" class="form-control paid_amount" placeholder="Enter Paid Amount" style="display:none;">
             </div>
@@ -213,24 +213,24 @@ $invoice_details = App\Models\InvoiceDetail::where('invoice_id',$payment->invoic
                  <div class="md-3" style="padding-top: 30px;">
                 <button type="submit" class="btn btn-info">Invoice Update</button>
             </div>
-                
+
             </div>
-            
+
         </div>
 
 
 
 
-                     
+
                 </div>
             </div>
  </form>
 
 
-        </div> 
+        </div>
     </div> <!-- end row -->
- 
- 
+
+
 
 
 
@@ -251,7 +251,7 @@ $invoice_details = App\Models\InvoiceDetail::where('invoice_id',$payment->invoic
         }else{
             $('.paid_amount').hide();
         }
-    }); 
+    });
 
 </script>
 
