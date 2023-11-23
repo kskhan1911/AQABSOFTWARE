@@ -9,12 +9,12 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">Customer Invoice</h4>
+                                    <h4 class="mb-sm-0">Income Source Invoice</h4>
 
                                     <div class="page-title-right">
                                         <ol class="m-0 breadcrumb">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);"> </a></li>
-                                            <li class="breadcrumb-item active">Customer Invoice</li>
+                                            <li class="breadcrumb-item active">Income Source Invoice</li>
                                         </ol>
                                     </div>
 
@@ -35,15 +35,15 @@
         <div class="col-12">
             <div>
                 <div class="p-2">
-     <h3 class="font-size-16"><strong>Customer Invoice ( Invoice No: #{{ $payment['invoice']['invoice_no'] }} ) </strong></h3>
+     <h3 class="font-size-16"><strong>Income Source Invoice ( Invoice No: #{{ $payment['invoice']['invoice_no'] }} ) </strong></h3>
                 </div>
                 <div class="">
 <div class="table-responsive">
     <table class="table">
         <thead>
         <tr>
-            <td><strong>Customer Name </strong></td>
-            <td class="text-center"><strong>Customer Mobile</strong></td>
+            <td><strong>Name</strong></td>
+            <td class="text-center"><strong>Mobile Number</strong></td>
             <td class="text-center"><strong>Address</strong>
             </td>
 

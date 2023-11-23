@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-body">
 
-            <h4 class="card-title">Add Invoice  </h4><br><br>
+            <h4 class="card-title">Add Income  </h4><br><br>
 
 
     <div class="row">
@@ -46,7 +46,7 @@
 
          <div class="col-md-3">
             <div class="md-3">
-                <label for="example-text-input" class="form-label">Product Name </label>
+                <label for="example-text-input" class="form-label">Object Name </label>
                 <select name="product_id" id="product_id" class="form-select select2" aria-label="Default select example">
                 <option selected="">Open this select menu</option>
 
@@ -88,7 +88,7 @@
                 <thead>
                     <tr>
                         <th>Category</th>
-                        <th>Product Name </th>
+                        <th>Object Name </th>
                         <th width="7%">PSC/KG</th>
                         <th width="10%">Unit Price </th>
                         <th width="15%">Total Price</th>
@@ -143,13 +143,13 @@
 
 
             <div class="form-group col-md-9">
-                <label> Customer Name  </label>
+                <label> Income Source Name  </label>
                     <select name="customer_id" id="customer_id" class="form-select">
-                        <option value="">Select Customer </option>
+                        <option value="">Select Income Source </option>
                         @foreach($costomer as $cust)
                         <option value="{{ $cust->id }}">{{ $cust->name }} - {{ $cust->mobile_no }}</option>
                         @endforeach
-                         <option value="0">New Customer </option>
+                         <option value="0">New Income Source </option>
                     </select>
             </div>
             </div> <!-- // end row --> <br>
@@ -157,22 +157,22 @@
 <!-- Hide Add Customer Form -->
 <div class="row new_customer" style="display:none">
     <div class="form-group col-md-4">
-        <input type="text" name="name" id="name" class="form-control" placeholder="Write Customer Name">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Write Income Source Name">
     </div>
 
     <div class="form-group col-md-4">
-        <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Write Customer Mobile No">
+        <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Write Income Source Mobile No">
     </div>
 
     <div class="form-group col-md-4">
-        <input type="email" name="email" id="email" class="form-control" placeholder="Write Customer Email">
+        <input type="email" name="email" id="email" class="form-control" placeholder="Write Income Source Email">
     </div>
 </div>
 <!-- End Hide Add Customer Form -->
 
  <br>
             <div class="form-group">
-                <button type="submit" class="btn btn-info" id="storeButton"> Invoice Store</button>
+                <button type="submit" class="btn btn-info" id="storeButton"> Income Store</button>
 
             </div>
 
@@ -221,17 +221,17 @@
     </td>
 
      <td>
-        <input type="number" min="1" class="form-control selling_qty text-right" name="selling_qty[]" value="">
+        <input type="number" min="1" class="text-right form-control selling_qty" name="selling_qty[]" value="">
     </td>
 
     <td>
-        <input type="number" class="form-control unit_price text-right" name="unit_price[]" value="">
+        <input type="number" class="text-right form-control unit_price" name="unit_price[]" value="">
     </td>
 
 
 
      <td>
-        <input type="number" class="form-control selling_price text-right" name="selling_price[]" value="0" readonly>
+        <input type="number" class="text-right form-control selling_price" name="selling_price[]" value="0" readonly>
     </td>
 
      <td>

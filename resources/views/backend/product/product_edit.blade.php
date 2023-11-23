@@ -10,17 +10,17 @@
     <div class="card">
         <div class="card-body">
 
-            <h4 class="card-title">Edit Product Page </h4><br><br>
-            
-  
+            <h4 class="card-title">Edit Object Page </h4><br><br>
+
+
 
  <form method="post" action="{{ route('product.update') }}" id="myForm" >
                 @csrf
 
                 <input type="hidden" name="id" value="{{ $product->id }}">
 
-            <div class="row mb-3">
-                <label for="example-text-input" class="col-sm-2 col-form-label">Product Name </label>
+            <div class="mb-3 row">
+                <label for="example-text-input" class="col-sm-2 col-form-label">Object Name </label>
                 <div class="form-group col-sm-10">
                     <input name="name" value="{{ $product->name }}" class="form-control" type="text"    >
                 </div>
@@ -28,8 +28,8 @@
             <!-- end row -->
 
 
-            <div class="row mb-3">
-        <label class="col-sm-2 col-form-label">Supplier Name </label>
+            <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Expense Source Name </label>
         <div class="col-sm-10">
             <select name="supplier_id" class="form-select" aria-label="Default select example">
                 <option selected="">Open this select menu</option>
@@ -41,7 +41,7 @@
     </div>
   <!-- end row -->
 
-      <div class="row mb-3">
+      <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">Unit Name </label>
         <div class="col-sm-10">
             <select name="unit_id" class="form-select" aria-label="Default select example">
@@ -56,7 +56,7 @@
 
 
 
-      <div class="row mb-3">
+      <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">Category Name </label>
         <div class="col-sm-10">
             <select name="category_id" class="form-select" aria-label="Default select example">
@@ -68,18 +68,18 @@
         </div>
     </div>
   <!-- end row -->
- 
-        
-<input type="submit" class="btn btn-info waves-effect waves-light" value="Update Product">
+
+
+<input type="submit" class="btn btn-info waves-effect waves-light" value="Update Object">
             </form>
-             
-           
-           
+
+
+
         </div>
     </div>
 </div> <!-- end col -->
 </div>
- 
+
 
 
 </div>
@@ -91,7 +91,7 @@
             rules: {
                 name: {
                     required : true,
-                }, 
+                },
                  supplier_id: {
                     required : true,
                 },
@@ -104,10 +104,10 @@
             },
             messages :{
                 name: {
-                    required : 'Please Enter Your Product Name',
+                    required : 'Please Enter Your Object Name',
                 },
                 supplier_id: {
-                    required : 'Please Select One Supplier',
+                    required : 'Please Select One Expense Source',
                 },
                 unit_id: {
                     required : 'Please Select One Unit',
@@ -116,7 +116,7 @@
                     required : 'Please Select One Category',
                 },
             },
-            errorElement : 'span', 
+            errorElement : 'span',
             errorPlacement: function (error,element) {
                 error.addClass('invalid-feedback');
                 element.closest('.form-group').append(error);
@@ -129,9 +129,9 @@
             },
         });
     });
-    
+
 </script>
 
 
- 
-@endsection 
+
+@endsection
